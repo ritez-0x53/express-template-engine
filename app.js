@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
+const data = require("./data");
+// console.log(data);
 
 // dummy data....
 const pages = {
@@ -29,6 +31,10 @@ app.get("/profile", (req, res) => {
 app.get("/about", (req, res) => {
   // rendering ejs file and passing pages object in it
   res.render("./about.ejs", { pages });
+});
+
+app.get("/products", (req, res) => {
+  res.render("./products.ejs", { data: data });
 });
 
 app.listen(4000);

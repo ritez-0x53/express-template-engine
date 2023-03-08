@@ -1,0 +1,44 @@
+<%- include("./partials/head.ejs") %>
+
+     <body>
+          <header>
+               <%- include("./partials/navbar") %>
+          </header>
+          <style>
+               .card {
+                    width: 100%;
+                    padding: 30px;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    box-shadow: 0 0 22px black;
+               }
+
+               img {
+                    border-radius: 50%;
+               }
+
+               .card-container {
+                    width: 90%;
+                    margin: 12px auto;
+                    display: grid;
+                    gap: 20px;
+                    grid-template-columns: repeat(2, 1fr);
+               }
+          </style>
+          <main>
+               <h1 class="text-center mt-2 m-5">This is Product Page</h1>
+
+               <div class="card-container">
+
+                    <% data.forEach((item,index)=> { %>
+
+                         <div class="card">
+                              <p>title : <%= item.title %>
+                              </p>
+                              <img src=<%=item.url %> width="160px" alt="">
+                         </div>
+
+                         <%} ) %>
+               </div>
+          </main>
+     </body>

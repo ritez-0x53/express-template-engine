@@ -29,17 +29,22 @@
           <main>
                <h1 class="text-center mt-2 m-5">This is Product Page</h1>
 
-               <div class="card-container">
+               <% if(data) { %>
 
-                    <% data.forEach((item,index)=> { %>
+                    <div class="card-container">
 
-                         <div class="card">
-                              <p>title : <%= item.title %>
-                              </p>
-                              <img src=<%=item.url %> width="160px" alt="">
-                         </div>
+                         <% data.forEach((item,index)=> { %>
 
-                         <%} ) %>
-               </div>
+                              <div class="card">
+                                   <p>title : <%= item.title %>
+                                   </p>
+                                   <img src=<%=item.url %> width="160px" alt="">
+                              </div>
+
+                              <%} ) %>
+                    </div>
+                    <% } else { %>
+                         <div>No Product</div>
+                         <% } %>
           </main>
      </body>
